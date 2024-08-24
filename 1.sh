@@ -10,6 +10,8 @@ systemctl start ssh ;
 
 systemctl enable ssh ;
 
+ssh DEBIVER@DEBIVER ;
+
 curl -sSL https://install.pi-hole.net | bash ;
 
 pihole -a -p DEBIVER ;

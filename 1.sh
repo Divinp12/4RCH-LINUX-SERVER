@@ -4,13 +4,13 @@ apt update ;
 
 apt upgrade -y ;
 
-apt install curl openssh-server -y ;
+apt install curl openssh-server sshpass -y ;
 
 systemctl start ssh ;
 
 systemctl enable ssh ;
 
-ssh DEBIVER@DEBIVER ;
+sshpass -p DEBIVER ssh DEBIVER@DEBIVER ;
 
 curl -sSL https://install.pi-hole.net | bash ;
 

@@ -6,6 +6,8 @@ sudo systemctl enable docker
 mkdir ~/pihole
 cd ~/pihole
 
+docker network create --subnet=172.18.0.0/16 pihole_network
+
 Crie um arquivo docker-compose.yml
 
 version: '3'

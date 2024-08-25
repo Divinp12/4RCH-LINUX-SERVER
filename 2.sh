@@ -110,10 +110,7 @@ pacman -Syyu --noconfirm --quiet;
 
 ### INSTALAR DRIVERS AMD
 if lspci | grep -i amd; then
-pacman -Sy --noconfirm \
-amd-ucode \
-vulkan-radeon \
-lib32-vulkan-radeon
+pacman -Sy --noconfirm amd-ucode
 fi;
 
 
@@ -122,10 +119,7 @@ fi;
 
 ### INSTALAR DRIVERS INTEL
 if lspci | grep -i intel; then
-pacman -Sy --noconfirm \
-intel-ucode \
-vulkan-intel \
-lib32-vulkan-intel
+pacman -Sy --noconfirm intel-ucode
 fi;
 
 
@@ -158,9 +152,7 @@ fi;
 
 
 ### HABILITAR AUTOINICIALIZACAO DE SERVICOS
-systemctl enable \
-NetworkManager \
-sddm;
+systemctl enable NetworkManager
 
 
 
@@ -178,17 +170,6 @@ systemd-timesyncd;
 
 ### RECONSTRUIR IMAGEM DO INITRAMFS USANDO CONFIGURACOES PADRAO DEFINIDAS PARA O PROCESSO DE INICIALIZACAO DO SISTEMA
 mkinitcpio -P;
-
-
-
-
-
-### SOBRESCREVER ARQUIVO "sddm.conf" EM "/etc"
-echo "[Autologin]
-Relogin=false
-User=4RCH
-Session=plasma
-EnableWayland=true" > /etc/sddm.conf;
 
 
 

@@ -132,28 +132,6 @@ networkmanager \
 sudo \
 git \
 fastfetch \
-mesa \
-lib32-mesa \
-mesa-vdpau \
-lib32-mesa-vdpau \
-libva-mesa-driver \
-lib32-libva-mesa-driver \
-vulkan-icd-loader \
-lib32-vulkan-icd-loader \
-vulkan-validation-layers \
-lib32-vulkan-validation-layers \
-vulkan-mesa-layers \
-lib32-vulkan-mesa-layers \
-vulkan-headers \
-plasma \
-konsole \
-wayland \
-lib32-wayland \
-pipewire \
-pipewire-pulse \
-pipewire-media-session \
-pavucontrol \
-sddm \
 grub-efi-x86_64 \
 efibootmgr;
 

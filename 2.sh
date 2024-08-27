@@ -128,12 +128,7 @@ fi;
 
 ### INSTALAR DRIVERS NVIDIA
 if lspci | grep -i nvidia; then
-pacman -Sy --noconfirm \
-nvidia \
-nvidia-dkms \
-nvidia-utils \
-lib32-nvidia-utils \
-nvidia-settings
+pacman -Sy --noconfirm nvidia nvidia-dkms
 fi;
 
 

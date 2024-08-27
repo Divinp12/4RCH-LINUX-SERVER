@@ -75,7 +75,7 @@ sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
 fastfetch
-git clone https://aur.archlinux.org/yay.git && sudo chmod 777 yay && cd yay && makepkg -si --noconfirm && cd .. && sudo rm -rf yay && yay -S --noconfirm nano pi-hole-server openssh --save --answerdiff None --answerclean None --removemake && sed -i '\$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
+git clone https://aur.archlinux.org/yay.git && sudo chmod 777 yay && cd yay && makepkg -si --noconfirm && cd .. && sudo rm -rf yay && yay -S --noconfirm nano pi-hole-server openssh --save --answerdiff None --answerclean None --removemake && sudo systemctl enable sshd && sudo systemctl start sshd && sed -i '\$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
 
 

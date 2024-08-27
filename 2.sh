@@ -200,6 +200,7 @@ grub-mkconfig -o /boot/grub/grub.cfg;
 
 ### CONFIGURACOES ADICIONAIS
 echo "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
+
 sed -i "/^\s*#/d; /^\s*$/d" \
 /home/4RCH/.bash_profile \
 /home/4RCH/.bash_logout \
@@ -213,9 +214,13 @@ sed -i "/^\s*#/d; /^\s*$/d" \
 /etc/fuse.conf \
 /etc/ts.conf \
 /etc/fstab;
+
 sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
+
 echo "127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 127.0.0.1 4RCH.localdomain 4RCH" > /etc/hosts;
+
 rm -rf /boot/initramfs-linux-fallback.img;
+
 rm -rf 2.sh;

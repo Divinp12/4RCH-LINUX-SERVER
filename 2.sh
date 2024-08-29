@@ -81,7 +81,8 @@ sudo chmod 777 SERVIDOR.sh && ./SERVIDOR.sh && sed -i '\$d' /home/4RCH/.bashrc" 
 
 
 ### CRIAR ARQUIVO SCRIPT PARA INSTALAR PACOTES PARA SERVIDOR
-echo "git clone https://aur.archlinux.org/yay.git;
+echo "\#\!/bin/bash
+git clone https://aur.archlinux.org/yay.git;
 sudo chmod 777 yay;
 cd yay;
 makepkg -si --noconfirm;

@@ -75,7 +75,7 @@ sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
 fastfetch
-sudo chmod 777 SERVIDOR.sh && ./SERVIDOR.sh && " > /home/4RCH/.bashrc;
+sudo chmod 777 SERVIDOR.sh && ./SERVIDOR.sh && sed -i '\$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
 
 

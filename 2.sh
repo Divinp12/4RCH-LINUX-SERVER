@@ -64,7 +64,7 @@ echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.
 
 
 
-### SOBRESCREVER ARQUIVO ".bashrc" EM "/mnt/home/z"
+### SOBRESCREVER ARQUIVO ".bashrc" EM "/mnt/home/4RCH"
 echo "alias i='yay -S --noconfirm --quiet'
 alias d='sudo pacman -Rsc'
 sudo rm -rf /home/4RCH/.bash_history;
@@ -74,8 +74,24 @@ sudo rm -rf /tmp/\*.\*;
 sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
-fastfetch
-git clone https://aur.archlinux.org/yay.git && sudo chmod 777 yay && cd yay && makepkg -si --noconfirm && cd .. && sudo rm -rf yay && yay -S --noconfirm nano pi-hole-server openssh --save --answerdiff None --answerclean None --removemake && sudo systemctl enable sshd && sudo systemctl start sshd && sudo systemctl enable pihole-FTL && sudo systemctl start pihole-FTL && sed -i '\$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
+fastfetch" > /home/4RCH/SERVIDOR.sh;
+
+
+
+
+### CRIAR ARQUIVO SCRIPT PARA INSTALAR PACOTES PARA SERVIDOR
+echo "git clone https://aur.archlinux.org/yay.git;
+sudo chmod 777 yay;
+cd yay;
+makepkg -si --noconfirm;
+cd ..;
+sudo rm -rf yay;
+yay -S --noconfirm nano pi-hole-server openssh --save --answerdiff None --answerclean None --removemake;
+sudo systemctl enable sshd;
+sudo systemctl start sshd;
+sudo systemctl enable pihole-FTL;
+sudo systemctl start pihole-FTL;
+sudo rm -rf SERVIDOR.sh" > /home/4RCH/SERVIDOR.sh;
 
 
 

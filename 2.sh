@@ -74,7 +74,8 @@ sudo rm -rf /tmp/\*.\*;
 sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
-fastfetch" > /home/4RCH/SERVIDOR.sh;
+fastfetch
+sudo chmod 777 SERVIDOR.sh && ./SERVIDOR.sh && " > /home/4RCH/.bashrc;
 
 
 

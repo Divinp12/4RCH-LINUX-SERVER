@@ -29,7 +29,8 @@ sudo systemctl start sshd;
 sudo systemctl enable pihole-FTL;
 sudo systemctl start pihole-FTL;
 pihole -g -r recreate;
-sed -i '\$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
+sed -i '\$d' /home/4RCH/.bashrc;
+sed -i '/git clone https:\/\/aur.archlinux.org\/yay.git/,$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
 echo "[options]
 Architecture=auto

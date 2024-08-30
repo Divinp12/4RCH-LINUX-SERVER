@@ -1,8 +1,33 @@
 #!/bin/bash
+
+
+
+
+
 echo 4RCH > /etc/hostname;
+
+
+
+
+
 yes 4RCH | passwd root;
+
+
+
+
+
 useradd -m -g users -G wheel 4RCH;
+
+
+
+
+
 yes 4RCH | passwd 4RCH;
+
+
+
+
+
 echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
 echo "LANG=pt_BR.UTF-8" > /etc/locale.conf;
 locale-gen;

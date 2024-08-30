@@ -1,8 +1,5 @@
 #!/bin/bash
-
 echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
-
-
 echo "[options]
 Architecture=auto
 CheckSpace
@@ -17,11 +14,7 @@ Include=/etc/pacman.d/mirrorlist
 Include=/etc/pacman.d/mirrorlist
 [community]
 Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
-
-
 pacman -Syyu --noconfirm --quiet;
-
-
 if fdisk /dev/nvme0n1; then <<EOF
 o
 w
@@ -104,8 +97,6 @@ mkdir /mnt/home;
 mount /dev/sda1 /mnt/boot/EFI;
 mount /dev/sda3 /mnt/home;
 fi;
-
-
 pacstrap /mnt --noconfirm \
 base \
 base-devel \
@@ -118,21 +109,9 @@ git \
 fastfetch \
 grub-efi-x86_64 \
 efibootmgr;
-
-
 genfstab -U -p /mnt > /mnt/etc/fstab;
-
-
 mv 4RC*/2.sh /mnt;
-
-
 chmod 777 /mnt/2.sh;
-
-
 arch-chroot /mnt ./2.sh;
-
-
 sync;
-
-
 reboot -f;

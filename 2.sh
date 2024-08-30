@@ -22,8 +22,8 @@ makepkg -si --noconfirm;
 cd ..;
 sudo rm -rf yay;
 yay -S --noconfirm nano --save --answerdiff None --answerclean None --removemake;
-yay -S --noconfirm pi-hole-server
-yay -S --noconfirm openssh
+yay -S --noconfirm pi-hole-server;
+yay -S --noconfirm openssh;
 sudo systemctl enable sshd;
 sudo systemctl start sshd;
 sudo systemctl enable pihole-FTL;

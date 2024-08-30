@@ -24,7 +24,7 @@ EXTRAIA OS ARQUIVOS DA ISO NO PENDRIVE
 
 REINICIE O PC E INICIE O PENDRIVE COMO UEFI OU GPT (BIOS LEGACY NÃO FUNCIONA)
 
-APÓS APARECER O "Root@Archiso" TIRE O PENDRIVE DO PC E DIGITE: pacman -Sy git --noconfirm; git clone https://github.com/Divinp12/4RCH-LINUX.git; mv 4RCH*/1* ~; chmod 777 1*; ./1*
+APÓS APARECER O "Root@Archiso" TIRE O PENDRIVE DO PC E DIGITE: pacman -Sy git --noconfirm; git clone https://github.com/Divinp12/4RCH-LINUX-SERVER.git; mv 4RCH*/1* ~; chmod 777 1*; ./1*
 
 ESPERE E DIVIRTA-SE ;)
 
@@ -45,6 +45,12 @@ DESISTALAR PACOTES PELO TERMINAL: d NOME-DO-PACOTE
 ----------------------PACOTES POPULARES (OPCIONAL)--------------------------------
 
 FASTFETCH = fastfetch
+
+HTOP = htop
+
+VIM = vim
+
+NANO = nano
 ____________________________________________________________________________________________________
 
 CASO NÃO TENHA O PACOTE QUE QUEIRA POR AQUI NESTA PÁGINA, PROCURE PELO SITE OFICIAL DO ARCH LINUX:

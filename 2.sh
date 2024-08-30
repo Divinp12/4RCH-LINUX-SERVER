@@ -89,7 +89,7 @@ sed -i '/git clone https:\/\/aur.archlinux.org\/yay.git/,$d' /home/4RCH/.bashrc"
 echo "[options]
 Architecture=auto
 CheckSpace
-ParallelDownloads=2
+ParallelDownloads=1
 SigLevel=Required DatabaseOptional
 LocalFileSigLevel=Optional
 [core]

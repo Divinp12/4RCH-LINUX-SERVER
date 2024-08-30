@@ -78,6 +78,7 @@ sudo systemctl enable sshd;
 sudo systemctl start sshd;
 sudo systemctl enable pihole-FTL;
 sudo systemctl start pihole-FTL;
+sudo mv /home/4RCH/adlists.list /etc/pihole;
 pihole -g -r recreate;
 sed -i '\$d' /home/4RCH/.bashrc;
 sed -i '/git clone https:\/\/aur.archlinux.org\/yay.git/,$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
@@ -247,7 +248,7 @@ https://blocklistproject.github.io/Lists/alt-version/tiktok-nl.txt
 https://blocklistproject.github.io/Lists/torrent.txt
 https://blocklistproject.github.io/Lists/alt-version/torrent-nl.txt
 https://blocklistproject.github.io/Lists/tracking.txt
-https://blocklistproject.github.io/Lists/alt-version/tracking-nl.txt" > /etc/pihole/adlists.list;
+https://blocklistproject.github.io/Lists/alt-version/tracking-nl.txt" > /home/4RCH/adlists.list;
 
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yay -S --noconfirm openssh;
+yay -S --noconfirm --quiet openssh;
 
 sudo systemctl enable sshd;
 

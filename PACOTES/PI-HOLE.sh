@@ -1,13 +1,9 @@
 #!/bin/bash
 
-yay -S --noconfirm --quiet pi-hole-server;
-
-sudo systemctl enable pihole-FTL;
-
-sudo systemctl start pihole-FTL;
-
-pihole -g;
-
+yay -S --noconfirm --quiet pi-hole-server && \
+sudo systemctl enable pihole-FTL && \
+sudo systemctl start pihole-FTL && \
+pihole -g && \
 echo "https://blocklistproject.github.io/Lists/abuse.txt
 https://blocklistproject.github.io/Lists/alt-version/abuse-nl.txt
 https://blocklistproject.github.io/Lists/ads.txt
@@ -43,6 +39,5 @@ https://blocklistproject.github.io/Lists/alt-version/tiktok-nl.txt
 https://blocklistproject.github.io/Lists/torrent.txt
 https://blocklistproject.github.io/Lists/alt-version/torrent-nl.txt
 https://blocklistproject.github.io/Lists/tracking.txt
-https://blocklistproject.github.io/Lists/alt-version/tracking-nl.txt" >> /etc/pihole/adlists.list;
-
+https://blocklistproject.github.io/Lists/alt-version/tracking-nl.txt" >> /etc/pihole/adlists.list && \
 pihole -g -r recreate;

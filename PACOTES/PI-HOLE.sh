@@ -1,3 +1,5 @@
+#!/bin/bash
+
 yay -S --noconfirm pi-hole-server;
 
 sudo systemctl enable pihole-FTL;

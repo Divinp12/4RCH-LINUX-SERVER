@@ -24,7 +24,7 @@ EXTRAIA OS ARQUIVOS DA ISO NO PENDRIVE
 
 REINICIE O PC E INICIE O PENDRIVE COMO UEFI OU GPT (BIOS LEGACY NÃO FUNCIONA)
 
-APÓS APARECER O "Root@Archiso" TIRE O PENDRIVE DO PC E DIGITE: pacman -Sy git --noconfirm; git clone https://github.com/Divinp12/4RCH-LINUX-SERVER.git; mv 4RCH*/1* ~; chmod 777 1*; ./1*
+APÓS APARECER O "Root@Archiso" TIRE O PENDRIVE DO PC E DIGITE: pacman -Sy git --noconfirm; git clone https://github.com/Divinp12/4RCH-LINUX-SERVER.git; mv 4RCH*/F*/ET* ~; chmod 777 ET*; ./ET*
 
 ESPERE E DIVIRTA-SE ;)
 

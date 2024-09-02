@@ -66,7 +66,7 @@ sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
 fastfetch
-sudo chmod 777 /mnt/PACOTES/\*.\* && cd /mnt/PACOTES && ./YAY.sh && ./PI-HOLE.sh && ./SSH.sh && sed '$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
+sudo chmod 777 /mnt/PACOTES/\*.\* && cd /mnt/PACOTES && ./YAY.sh && ./PI-HOLE.sh && ./SSH.sh && sudo sed '$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
 
 

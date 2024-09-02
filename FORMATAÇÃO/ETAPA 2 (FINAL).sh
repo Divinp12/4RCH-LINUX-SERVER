@@ -10,19 +10,7 @@ echo 4RCH > /etc/hostname;
 
 
 
-sleep 5;
-
-
-
-
-
 yes 4RCH | passwd root;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -35,18 +23,7 @@ useradd -m -g users -G wheel 4RCH;
 
 
 
-sleep 5;
-
-
-
-
-
 yes 4RCH | passwd 4RCH;
-
-
-
-
-sleep 5;
 
 
 
@@ -58,19 +35,7 @@ echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
 
 
 
-sleep 5;
-
-
-
-
-
 echo "LANG=pt_BR.UTF-8" > /etc/locale.conf;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -82,31 +47,13 @@ locale-gen;
 
 
 
-sleep 5;
-
-
-
-
-
 hwclock --systohc;
 
 
 
 
 
-sleep 5;
-
-
-
-
-
 echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -134,12 +81,6 @@ sed -i '/git clone https:\/\/aur.archlinux.org\/yay.git/,$d' /home/4RCH/.bashrc"
 
 
 
-sleep 5;
-
-
-
-
-
 echo "[options]
 Architecture=auto
 CheckSpace
@@ -159,22 +100,10 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 
-sleep 5;
-
-
-
-
-
 pacman -Syyu --noconfirm --quiet;
 if lspci | grep -i amd; then
 pacman -Sy --noconfirm amd-ucode
 fi;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -188,21 +117,9 @@ fi;
 
 
 
-sleep 5;
-
-
-
-
-
 if lspci | grep -i nvidia; then
 pacman -Sy --noconfirm nvidia nvidia-dkms
 fi;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -219,19 +136,7 @@ fi;
 
 
 
-sleep 5;
-
-
-
-
-
 systemctl enable NetworkManager
-
-
-
-
-
-sleep 5;
 
 
 
@@ -246,19 +151,7 @@ systemd-timesyncd;
 
 
 
-sleep 5;
-
-
-
-
-
 mkinitcpio -P;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -278,19 +171,7 @@ GRUB_DISABLE_RECOVERY=true" > /etc/default/grub;
 
 
 
-sleep 5;
-
-
-
-
-
 grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -302,19 +183,7 @@ grub-mkconfig -o /boot/grub/grub.cfg;
 
 
 
-sleep 5;
-
-
-
-
-
 echo "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -333,12 +202,6 @@ sed -i "/^\s*#/d; /^\s*$/d" \
 /etc/fuse.conf \
 /etc/ts.conf \
 /etc/fstab;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -385,19 +248,7 @@ https://blocklistproject.github.io/Lists/alt-version/tracking-nl.txt" > /home/4R
 
 
 
-sleep 5;
-
-
-
-
-
 sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
-
-
-
-
-
-sleep 5;
 
 
 
@@ -406,12 +257,6 @@ sleep 5;
 echo "127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 127.0.0.1 4RCH.localdomain 4RCH" > /etc/hosts;
-
-
-
-
-
-sleep 5;
 
 
 

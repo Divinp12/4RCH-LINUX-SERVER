@@ -151,6 +151,12 @@ mv 4RCH*/FORMA*/ETAPA 2* /mnt;
 
 
 
+mv 4RCH*/PACO* /mnt;
+
+
+
+
+
 chmod 777 /mnt/ETAPA 2*;
 
 

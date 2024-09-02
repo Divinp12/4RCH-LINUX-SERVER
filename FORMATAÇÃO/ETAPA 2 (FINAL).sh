@@ -65,17 +65,7 @@ sudo rm -rf /home/4RCH/.bash_history /home/4RCH/.cache /var/log /tmp/\*.\*;
 sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
-fastfetch
-yay -S --noconfirm pi-hole-server;
-yay -S --noconfirm openssh;
-sudo systemctl enable sshd;
-sudo systemctl start sshd;
-sudo systemctl enable pihole-FTL;
-sudo systemctl start pihole-FTL;
-sudo mv /home/4RCH/adlists.list /etc/pihole;
-pihole -g -r recreate;
-sed -i '\$d' /home/4RCH/.bashrc;
-sed -i '/git clone https:\/\/aur.archlinux.org\/yay.git/,$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
+fastfetch" > /home/4RCH/.bashrc;
 
 
 

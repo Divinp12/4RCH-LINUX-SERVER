@@ -91,6 +91,11 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 pacman -Syyu --noconfirm --quiet;
+
+
+
+
+
 if lspci | grep -i amd; then
 pacman -Sy --noconfirm amd-ucode
 fi;

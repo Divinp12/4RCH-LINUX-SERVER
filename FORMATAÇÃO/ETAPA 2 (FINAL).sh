@@ -216,4 +216,4 @@ echo "127.0.0.1 localhost.localdomain localhost
 
 
 
-rm -rf /boot/initramfs-linux-fallback.img 2.sh;
+rm -rf /boot/initramfs-linux-fallback.img /mnt/ETAPA 2*;

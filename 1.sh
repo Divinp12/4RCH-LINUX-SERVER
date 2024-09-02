@@ -10,6 +10,12 @@ echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.
 
 
 
+sleep 5;
+
+
+
+
+
 echo "[options]
 Architecture=auto
 CheckSpace
@@ -29,7 +35,19 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 
+sleep 5;
+
+
+
+
+
 pacman -Syyu --noconfirm --quiet;
+
+
+
+
+
+sleep 5;
 
 
 
@@ -122,6 +140,12 @@ fi;
 
 
 
+sleep 5;
+
+
+
+
+
 pacstrap /mnt --noconfirm \
 base \
 base-devel \
@@ -139,7 +163,19 @@ efibootmgr;
 
 
 
+sleep 5;
+
+
+
+
+
 genfstab -U -p /mnt > /mnt/etc/fstab;
+
+
+
+
+
+sleep 5;
 
 
 
@@ -151,7 +187,19 @@ mv 4RC*/2.sh /mnt;
 
 
 
+sleep 5;
+
+
+
+
+
 chmod 777 /mnt/2.sh;
+
+
+
+
+
+sleep 5;
 
 
 
@@ -163,7 +211,19 @@ arch-chroot /mnt ./2.sh;
 
 
 
+sleep 5;
+
+
+
+
+
 sync;
+
+
+
+
+
+sleep 5;
 
 
 

@@ -65,7 +65,8 @@ sudo rm -rf /home/4RCH/.bash_history /home/4RCH/.cache /var/log /tmp/\*.\*;
 sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
-fastfetch" > /home/4RCH/.bashrc;
+fastfetch
+sudo chmod 777 /mnt/PACOTES/\*.\* && cd /mnt/PACOTES && ./YAY.sh" > /home/4RCH/.bashrc;
 
 
 

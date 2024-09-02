@@ -145,7 +145,7 @@ genfstab -U -p /mnt > /mnt/etc/fstab;
 
 
 
-mv 4RCH*/FORMA*/*2.sh /mnt;
+mv 4RCH*/FORMA*/ETAPA2.sh /mnt;
 
 
 
@@ -157,13 +157,13 @@ mv 4RCH*/PACO* /mnt;
 
 
 
-chmod 777 /mnt/*2.sh;
+chmod 777 /mnt/ETAPA2.sh;
 
 
 
 
 
-arch-chroot /mnt ./*2.sh;
+arch-chroot /mnt ./ETAPA2.sh;
 
 
 

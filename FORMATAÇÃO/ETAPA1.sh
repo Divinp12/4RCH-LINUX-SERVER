@@ -151,7 +151,7 @@ mv 4RCH*/FORMA*/ETAPA2.sh /mnt;
 
 
 
-mv 4RCH*/PACO* /mnt;
+mv 4RCH*/PACOTES/*.* /mnt;
 
 
 

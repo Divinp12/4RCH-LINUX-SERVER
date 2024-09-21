@@ -135,8 +135,8 @@ hwclock --systohc;
 
 echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
 
-echo "alias i='yay -S --noconfirm --quiet'
-alias d='sudo pacman -Rsc'
+echo "alias i=\"yay -S --noconfirm --quiet\"
+alias d=\"sudo pacman -Rsc\"
 sudo rm -rf /home/4RCH/.bash_history /home/4RCH/.cache /var/log /tmp;
 sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
@@ -159,7 +159,7 @@ Include=/etc/pacman.d/mirrorlist
 [community]
 Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
-pacman -Syyu --noconfirm --quiet;
+pacman -Sy --noconfirm --quiet;
 
 if lspci | grep -i amd; then
 pacman -Sy --noconfirm amd-ucode

@@ -142,6 +142,7 @@ sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
 fastfetch
+
 git clone https://aur.archlinux.org/yay.git && \\
 sudo chmod 777 yay && \\
 cd yay && \\

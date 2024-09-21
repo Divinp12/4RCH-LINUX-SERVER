@@ -16,7 +16,7 @@ Include=/etc/pacman.d/mirrorlist
 [community]
 Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
-pacman -Syyu --noconfirm --quiet;
+pacman -Sy --noconfirm --quiet;
 
 if fdisk /dev/nvme0n1; then <<EOF
 o
@@ -119,11 +119,11 @@ genfstab -U -p /mnt > /mnt/etc/fstab;
 arch-chroot /mnt bash -c '
 echo 4RCH > /etc/hostname;
 
-yes 4RCH | passwd root;
+echo -e "4RCH\n4RCH" | passwd root;
 
 useradd -m -g users -G wheel 4RCH;
 
-yes 4RCH | passwd 4RCH;
+echo -e "4RCH\n4RCH" | passwd 4RCH;
 
 echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
 

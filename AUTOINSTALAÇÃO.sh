@@ -116,7 +116,7 @@ efibootmgr;
 
 genfstab -U -p /mnt > /mnt/etc/fstab;
 
-arch-chroot /mnt bash -c
+arch-chroot /mnt bash -c '
 echo 4RCH > /etc/hostname;
 
 yes 4RCH | passwd root;
@@ -224,7 +224,7 @@ echo "127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 127.0.0.1 4RCH.localdomain 4RCH" > /etc/hosts;
 
-rm -rf /boot/initramfs-linux-fallback.img /mnt/ETAPA 2*;
+rm -rf /boot/initramfs-linux-fallback.img';
 
 sync;
 

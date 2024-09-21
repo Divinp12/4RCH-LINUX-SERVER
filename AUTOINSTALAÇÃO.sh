@@ -190,7 +190,11 @@ https://blocklistproject.github.io/Lists/torrent.txt
 https://blocklistproject.github.io/Lists/alt-version/torrent-nl.txt
 https://blocklistproject.github.io/Lists/tracking.txt
 https://blocklistproject.github.io/Lists/alt-version/tracking-nl.txt" >> /etc/pihole/adlists.list && \
-pihole -g -r recreate;" > /home/4RCH/.bashrc;
+pihole -g -r recreate;
+
+yay -S --noconfirm --quiet openssh && \
+sudo systemctl enable sshd && \
+sudo systemctl start sshd;" > /home/4RCH/.bashrc;
 
 echo "[options]
 Architecture=auto

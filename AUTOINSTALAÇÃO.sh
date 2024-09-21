@@ -1,14 +1,5 @@
 #!/bin/bash
-
-
-
-
-
 echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
-
-
-
-
 
 echo "[options]
 Architecture=auto
@@ -25,15 +16,7 @@ Include=/etc/pacman.d/mirrorlist
 [community]
 Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
-
-
-
-
 pacman -Syyu --noconfirm --quiet;
-
-
-
-
 
 if fdisk /dev/nvme0n1; then <<EOF
 o
@@ -118,10 +101,6 @@ mount /dev/sda1 /mnt/boot/EFI;
 mount /dev/sda3 /mnt/home;
 fi;
 
-
-
-
-
 pacstrap /mnt --noconfirm \
 base \
 base-devel \
@@ -135,101 +114,26 @@ fastfetch \
 grub-efi-x86_64 \
 efibootmgr;
 
-
-
-
-
 genfstab -U -p /mnt > /mnt/etc/fstab;
 
-
-
-
-
-mv 4RCH*/FORMA*/ETAPA2.sh /mnt;
-
-
-
-
-
-mv 4RCH*/PACOTES/*.* /mnt;
-
-
-
-
-
-chmod 777 /mnt/ETAPA2.sh;
-
-
-
-
-
-arch-chroot /mnt ./ETAPA2.sh;
-
-
-
-
-
-
-#!/bin/bash
-
-
-
-
-
+arch-chroot /mnt bash -c
 echo 4RCH > /etc/hostname;
-
-
-
-
 
 yes 4RCH | passwd root;
 
-
-
-
-
-
 useradd -m -g users -G wheel 4RCH;
-
-
-
-
 
 yes 4RCH | passwd 4RCH;
 
-
-
-
-
 echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
-
-
-
-
 
 echo "LANG=pt_BR.UTF-8" > /etc/locale.conf;
 
-
-
-
-
 locale-gen;
-
-
-
-
 
 hwclock --systohc;
 
-
-
-
-
 echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
-
-
-
-
 
 echo "alias i='yay -S --noconfirm --quiet'
 alias d='sudo pacman -Rsc'
@@ -239,10 +143,6 @@ sudo pacman -Scc --noconfirm --quiet;
 clear;
 fastfetch
 cd / && sudo mv *.sh /home/4RCH && cd ~ && sudo chmod 777 *.sh && ./YAY.sh && ./PI-HOLE.sh && ./SSH.sh && sudo sed '$d' /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
-
-
-
-
 
 echo "[options]
 Architecture=auto
@@ -259,71 +159,34 @@ Include=/etc/pacman.d/mirrorlist
 [community]
 Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
-
-
-
-
 pacman -Syyu --noconfirm --quiet;
-
-
-
-
 
 if lspci | grep -i amd; then
 pacman -Sy --noconfirm amd-ucode
 fi;
 
-
-
-
-
 if lspci | grep -i intel; then
 pacman -Sy --noconfirm intel-ucode
 fi;
-
-
-
-
 
 if lspci | grep -i nvidia; then
 pacman -Sy --noconfirm nvidia nvidia-dkms
 fi;
 
-
-
-
-
 if lspci | grep -i virtualbox; then
 pacman -Sy --noconfirm \
 virtualbox-guest-utils \
-virtualbox-guest-modules-arch;
-systemctl enable vboxservice;
+virtualbox-guest-modules-arch
 fi;
 
-
-
-
-
 systemctl enable NetworkManager
-
-
-
-
 
 systemctl disable \
 NetworkManager-wait-online \
 systemd-networkd \
 systemd-timesyncd;
 
-
-
-
-
 mkinitcpio -P;
-
-
-
-
 
 echo "GRUB_DEFAULT=0
 GRUB_TIMEOUT=0
@@ -335,27 +198,11 @@ GRUB_GFXMODE=auto
 GRUB_GFXPAYLOAD_LINUX=keep
 GRUB_DISABLE_RECOVERY=true" > /etc/default/grub;
 
-
-
-
-
 grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
-
-
-
-
 
 grub-mkconfig -o /boot/grub/grub.cfg;
 
-
-
-
-
 echo "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
-
-
-
-
 
 sed -i "/^\s*#/d; /^\s*$/d" \
 /home/4RCH/.bash_profile \
@@ -371,31 +218,14 @@ sed -i "/^\s*#/d; /^\s*$/d" \
 /etc/ts.conf \
 /etc/fstab;
 
-
-
-
-
 sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
-
-
-
-
 
 echo "127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 127.0.0.1 4RCH.localdomain 4RCH" > /etc/hosts;
 
-
-
-
-
 rm -rf /boot/initramfs-linux-fallback.img /mnt/ETAPA 2*;
 
-
 sync;
-
-
-
-
 
 reboot -f;

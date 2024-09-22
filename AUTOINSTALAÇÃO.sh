@@ -256,7 +256,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH 
 
 grub-mkconfig -o /boot/grub/grub.cfg;
 
-echo "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
+ç "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
 
 sed -i "/^\s*#/d; /^\s*$/d" \
 /home/4RCH/.bash_profile \

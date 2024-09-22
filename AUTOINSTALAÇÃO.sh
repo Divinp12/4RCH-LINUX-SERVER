@@ -149,8 +149,7 @@ cd yay && \\
 makepkg -si --noconfirm && \\
 cd .. && \\
 sudo rm -rf yay && \\
-yay -S --noconfirm nano --save --answerdiff None --answerclean None --removemake;
-
+yay -S --noconfirm nano --save --answerdiff None --answerclean None --removemake && \\
 yay -S --noconfirm --quiet pi-hole-server && \\
 sudo systemctl enable pihole-FTL && \\
 sudo systemctl start pihole-FTL && \\
@@ -191,11 +190,11 @@ https://blocklistproject.github.io/Lists/torrent.txt
 https://blocklistproject.github.io/Lists/alt-version/torrent-nl.txt
 https://blocklistproject.github.io/Lists/tracking.txt
 https://blocklistproject.github.io/Lists/alt-version/tracking-nl.txt\" >> /etc/pihole/adlists.list && \\
-pihole -g -r recreate;
-
+pihole -g -r recreate && \\
 yay -S --noconfirm --quiet openssh && \\
 sudo systemctl enable sshd && \\
-sudo systemctl start sshd;" > /home/4RCH/.bashrc;
+sudo systemctl start sshd && \\
+sudo sed -i \"8,\\\$d\" /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
 echo "[options]
 Architecture=auto

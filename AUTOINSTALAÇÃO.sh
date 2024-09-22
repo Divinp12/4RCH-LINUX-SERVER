@@ -117,25 +117,27 @@ efibootmgr;
 genfstab -U -p /mnt > /mnt/etc/fstab;
 
 arch-chroot /mnt bash -c '
-echo 4RCH > /etc/hostname;
+alias ç="echo";
 
-echo -e "4RCH\n4RCH" | passwd root;
+ç 4RCH > /etc/hostname;
+
+ç -e "4RCH\n4RCH" | passwd root;
 
 useradd -m -g users -G wheel 4RCH;
 
-echo -e "4RCH\n4RCH" | passwd 4RCH;
+ç -e "4RCH\n4RCH" | passwd 4RCH;
 
-echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
+ç "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
 
-echo "LANG=pt_BR.UTF-8" > /etc/locale.conf;
+ç "LANG=pt_BR.UTF-8" > /etc/locale.conf;
 
 locale-gen;
 
 hwclock --systohc;
 
-echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
+ç "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
 
-echo "alias i=\"yay -S --noconfirm --quiet\"
+ç "alias i=\"yay -S --noconfirm --quiet\"
 alias d=\"sudo pacman -Rsc\"
 sudo rm -rf /home/4RCH/.bash_history /home/4RCH/.cache /var/log /tmp;
 sudo pacman -Syyu --noconfirm --quiet;
@@ -196,7 +198,7 @@ sudo systemctl enable sshd && \\
 sudo systemctl start sshd && \\
 sudo sed -i \"8,\\\$d\" /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
-echo "[options]
+ç "[options]
 Architecture=auto
 CheckSpace
 ParallelDownloads=1
@@ -240,7 +242,7 @@ systemd-timesyncd;
 
 mkinitcpio -P;
 
-echo "GRUB_DEFAULT=0
+ç "GRUB_DEFAULT=0
 GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR=\"4RCH\"
 GRUB_CMDLINE_LINUX_DEFAULT=\"quiet mitigations=off\"
@@ -272,7 +274,7 @@ sed -i "/^\s*#/d; /^\s*$/d" \
 
 sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
 
-echo "127.0.0.1 localhost.localdomain localhost
+ç "127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 127.0.0.1 4RCH.localdomain 4RCH" > /etc/hosts;
 

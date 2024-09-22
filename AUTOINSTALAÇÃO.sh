@@ -144,7 +144,6 @@ sudo pacman -Syyu --noconfirm --quiet;
 sudo pacman -Scc --noconfirm --quiet;
 clear;
 fastfetch
-
 git clone https://aur.archlinux.org/yay.git && \\
 sudo chmod 777 yay && \\
 cd yay && \\
@@ -156,7 +155,7 @@ yay -S --noconfirm --quiet pi-hole-server && \\
 sudo systemctl enable pihole-FTL && \\
 sudo systemctl start pihole-FTL && \\
 pihole -g && \\
-echo \"https://blocklistproject.github.io/Lists/abuse.txt
+echo \"4RCH\" | su -c \"echo \"https://blocklistproject.github.io/Lists/abuse.txt
 https://blocklistproject.github.io/Lists/alt-version/abuse-nl.txt
 https://blocklistproject.github.io/Lists/ads.txt
 https://blocklistproject.github.io/Lists/alt-version/ads-nl.txt

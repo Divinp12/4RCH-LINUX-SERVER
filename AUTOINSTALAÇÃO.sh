@@ -171,14 +171,73 @@ genfstab -U -p /mnt > /mnt/etc/fstab;
 
 
 arch-chroot /mnt bash -c '
+
+
+
+
++() {
+echo "$@"
+}
+
+?() {
+sleep 5;
+clear; "$@"
+}
+
+clear;
+
+
+
+
+
 echo 4RCH > /etc/hostname;
+
+
+
+
+
 echo -e "4RCH\n4RCH" | passwd root;
+
+
+
+
+
 useradd -m -g users -G wheel 4RCH;
+
+
+
+
+
 echo -e "4RCH\n4RCH" | passwd 4RCH;
+
+
+
+
+
 echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
+
+
+
+
+
 echo "LANG=pt_BR.UTF-8" > /etc/locale.conf;
+
+
+
+
+
 locale-gen;
+
+
+
+
+
 hwclock --systohc;
+
+
+
+
+
 echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
 echo "alias i=\"yay -S --noconfirm --quiet\"
 alias d=\"sudo pacman -Rsc\"

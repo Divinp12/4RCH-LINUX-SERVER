@@ -147,7 +147,7 @@ fi;
 
 
 
-pacstrap /mnt --noconfirm \
+pacstrap /mnt --noconfirm --quiet \
 base \
 base-devel \
 linux \
@@ -190,13 +190,13 @@ clear;
 
 
 
-echo 4RCH > /etc/hostname;
++ 4RCH > /etc/hostname;
 
 
 
 
 
-echo -e "4RCH\n4RCH" | passwd root;
++ -e "4RCH\n4RCH" | passwd root;
 
 
 
@@ -208,19 +208,19 @@ useradd -m -g users -G wheel 4RCH;
 
 
 
-echo -e "4RCH\n4RCH" | passwd 4RCH;
++ -e "4RCH\n4RCH" | passwd 4RCH;
 
 
 
 
 
-echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
++ "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
 
 
 
 
 
-echo "LANG=pt_BR.UTF-8" > /etc/locale.conf;
++ "LANG=pt_BR.UTF-8" > /etc/locale.conf;
 
 
 
@@ -238,13 +238,13 @@ hwclock --systohc;
 
 
 
-echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
++ "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
 
 
 
 
 
-echo "alias i=\"yay -S --noconfirm --quiet\"
++ "alias i=\"yay -S --noconfirm --quiet\"
 alias d=\"sudo pacman -Rsc\"
 sudo rm -rf /home/4RCH/.bash_history /home/4RCH/.cache /var/log /tmp;
 sudo pacman -Syyu --noconfirm --quiet;
@@ -308,7 +308,7 @@ sudo sed -i \"8,\\\$d\" /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
 
 
-echo "[options]
++ "[options]
 Architecture=auto
 CheckSpace
 ParallelDownloads=1
@@ -388,7 +388,7 @@ mkinitcpio -P;
 
 
 
-echo "GRUB_DEFAULT=0
++ "GRUB_DEFAULT=0
 GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR=\"4RCH\"
 GRUB_CMDLINE_LINUX_DEFAULT=\"quiet mitigations=off\"
@@ -414,7 +414,7 @@ grub-mkconfig -o /boot/grub/grub.cfg;
 
 
 
-echo "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
++ "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
 
 
 
@@ -444,7 +444,7 @@ sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
 
 
 
-echo "127.0.0.1 localhost.localdomain localhost
++ "127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 127.0.0.1 4RCH.localdomain 4RCH" > /etc/hosts;
 

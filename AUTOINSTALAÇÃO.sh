@@ -12,6 +12,10 @@ sleep 5;
 clear; "$@"
 }
 
+%() {
+"$@" > /dev/null 2>&1;
+}
+
 clear;
 
 
@@ -66,7 +70,7 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 
-pacman -Sy --noconfirm --quiet;
+% pacman -Sy --noconfirm --quiet
 
 
 
@@ -108,16 +112,16 @@ p
 
 w
 EOF
-partprobe;
-mkfs.fat -F32 /dev/nvme0n1p1;
-mkfs.ext4 -F /dev/nvme0n1p2;
-mkfs.ext4 -F /dev/nvme0n1p3;
-mount /dev/nvme0n1p2 /mnt;
-mkdir /mnt/boot;
-mkdir /mnt/boot/EFI;
-mkdir /mnt/home;
-mount /dev/nvme0n1p1 /mnt/boot/EFI;
-mount /dev/nvme0n1p3 /mnt/home;
+% partprobe
+% mkfs.fat -F32 /dev/nvme0n1p1
+% mkfs.ext4 -F /dev/nvme0n1p2
+% mkfs.ext4 -F /dev/nvme0n1p3
+% mount /dev/nvme0n1p2 /mnt
+% mkdir /mnt/boot
+% mkdir /mnt/boot/EFI
+% mkdir /mnt/home
+% mount /dev/nvme0n1p1 /mnt/boot/EFI
+% mount /dev/nvme0n1p3 /mnt/home
 else
 fdisk /dev/sda <<EOF
 o
@@ -149,16 +153,16 @@ p
 
 w
 EOF
-partprobe;
-mkfs.fat -F32 /dev/sda1;
-mkfs.ext4 -F /dev/sda2;
-mkfs.ext4 -F /dev/sda3;
-mount /dev/sda2 /mnt;
-mkdir /mnt/boot;
-mkdir /mnt/boot/EFI;
-mkdir /mnt/home;
-mount /dev/sda1 /mnt/boot/EFI;
-mount /dev/sda3 /mnt/home;
+% partprobe
+% mkfs.fat -F32 /dev/sda1
+% mkfs.ext4 -F /dev/sda2
+% mkfs.ext4 -F /dev/sda3
+% mount /dev/sda2 /mnt
+% mkdir /mnt/boot
+% mkdir /mnt/boot/EFI
+% mkdir /mnt/home
+% mount /dev/sda1 /mnt/boot/EFI
+% mount /dev/sda3 /mnt/home
 fi;
 
 
@@ -171,7 +175,7 @@ fi;
 
 
 
-pacstrap /mnt --noconfirm --quiet \
+% pacstrap /mnt --noconfirm --quiet \
 base \
 base-devel \
 linux \

@@ -35,6 +35,12 @@ fi;
 
 
 
+?
+
+
+
+
+
 + "[options]
 Architecture=auto
 CheckSpace
@@ -54,7 +60,19 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 
+?
+
+
+
+
+
 pacman -Sy --noconfirm --quiet;
+
+
+
+
+
+?
 
 
 
@@ -147,6 +165,12 @@ fi;
 
 
 
+?
+
+
+
+
+
 pacstrap /mnt --noconfirm --quiet \
 base \
 base-devel \
@@ -164,7 +188,19 @@ efibootmgr;
 
 
 
+?
+
+
+
+
+
 genfstab -U -p /mnt > /mnt/etc/fstab;
+
+
+
+
+
+?
 
 
 
@@ -190,7 +226,19 @@ clear;
 
 
 
+?
+
+
+
+
+
 + 4RCH > /etc/hostname;
+
+
+
+
+
+?
 
 
 
@@ -202,7 +250,19 @@ clear;
 
 
 
+?
+
+
+
+
+
 useradd -m -g users -G wheel 4RCH;
+
+
+
+
+
+?
 
 
 
@@ -214,7 +274,19 @@ useradd -m -g users -G wheel 4RCH;
 
 
 
+?
+
+
+
+
+
 + "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
+
+
+
+
+
+?
 
 
 
@@ -226,7 +298,19 @@ useradd -m -g users -G wheel 4RCH;
 
 
 
+?
+
+
+
+
+
 locale-gen;
+
+
+
+
+
+?
 
 
 
@@ -238,7 +322,19 @@ hwclock --systohc;
 
 
 
+?
+
+
+
+
+
 + "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
+
+
+
+
+
+?
 
 
 
@@ -308,6 +404,12 @@ sudo sed -i \"8,\\\$d\" /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
 
 
+?
+
+
+
+
+
 + "[options]
 Architecture=auto
 CheckSpace
@@ -327,7 +429,19 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 
+?
+
+
+
+
+
 pacman -Sy --noconfirm --quiet;
+
+
+
+
+
+?
 
 
 
@@ -341,6 +455,12 @@ fi;
 
 
 
+?
+
+
+
+
+
 if lspci | grep -i intel; then
 pacman -Sy --noconfirm intel-ucode
 fi;
@@ -349,9 +469,21 @@ fi;
 
 
 
+?
+
+
+
+
+
 if lspci | grep -i nvidia; then
 pacman -Sy --noconfirm nvidia nvidia-dkms
 fi;
+
+
+
+
+
+?
 
 
 
@@ -367,7 +499,19 @@ fi;
 
 
 
-systemctl enable NetworkManager
+?
+
+
+
+
+
+systemctl enable NetworkManager;
+
+
+
+
+
+?
 
 
 
@@ -382,7 +526,19 @@ systemd-timesyncd;
 
 
 
+?
+
+
+
+
+
 mkinitcpio -P;
+
+
+
+
+
+?
 
 
 
@@ -402,7 +558,19 @@ GRUB_DISABLE_RECOVERY=true" > /etc/default/grub;
 
 
 
+?
+
+
+
+
+
 grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
+
+
+
+
+
+?
 
 
 
@@ -414,7 +582,19 @@ grub-mkconfig -o /boot/grub/grub.cfg;
 
 
 
+?
+
+
+
+
+
 + "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
+
+
+
+
+
+?
 
 
 
@@ -438,7 +618,19 @@ sed -i "/^\s*#/d; /^\s*$/d" \
 
 
 
+?
+
+
+
+
+
 sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
+
+
+
+
+
+?
 
 
 
@@ -452,13 +644,31 @@ sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
 
 
 
+?
+
+
+
+
+
 rm -rf /boot/initramfs-linux-fallback.img';
 
 
 
 
 
+?
+
+
+
+
+
 sync;
+
+
+
+
+
+?
 
 
 

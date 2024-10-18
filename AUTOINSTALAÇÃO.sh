@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-
-
 +() {
 echo "$@"
 }
@@ -186,7 +183,7 @@ sudo \
 git \
 fastfetch \
 grub-efi-x86_64 \
-efibootmgr;
+efibootmgr
 
 
 
@@ -222,6 +219,10 @@ echo "$@"
 ?() {
 sleep 5;
 clear; "$@"
+}
+
+%() {
+"$@" > /dev/null 2>&1;
 }
 
 clear;
@@ -308,7 +309,7 @@ useradd -m -g users -G wheel 4RCH;
 
 
 
-locale-gen;
+% locale-gen;
 
 
 
@@ -320,7 +321,7 @@ locale-gen;
 
 
 
-hwclock --systohc;
+% hwclock --systohc;
 
 
 
@@ -439,7 +440,7 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 
-pacman -Sy --noconfirm --quiet;
+% pacman -Sy --noconfirm --quiet;
 
 
 
@@ -509,7 +510,7 @@ fi;
 
 
 
-systemctl enable NetworkManager;
+% systemctl enable NetworkManager;
 
 
 
@@ -521,7 +522,7 @@ systemctl enable NetworkManager;
 
 
 
-systemctl disable \
+% systemctl disable \
 NetworkManager-wait-online \
 systemd-networkd \
 systemd-timesyncd;
@@ -536,7 +537,7 @@ systemd-timesyncd;
 
 
 
-mkinitcpio -P;
+% mkinitcpio -P;
 
 
 
@@ -568,7 +569,7 @@ GRUB_DISABLE_RECOVERY=true" > /etc/default/grub;
 
 
 
-grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
+% grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
 
 
 
@@ -580,7 +581,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH 
 
 
 
-grub-mkconfig -o /boot/grub/grub.cfg;
+% grub-mkconfig -o /boot/grub/grub.cfg;
 
 
 
@@ -666,7 +667,7 @@ rm -rf /boot/initramfs-linux-fallback.img';
 
 
 
-sync;
+% sync;
 
 
 

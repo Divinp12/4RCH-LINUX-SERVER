@@ -1,6 +1,41 @@
 #!/bin/bash
-echo "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
-echo "[options]
+
+
+
+
++() {
+echo "$@"
+}
+
+?() {
+sleep 5;
+clear; "$@"
+}
+
+clear;
+
+
+
+
+
+if + "INICIANDO FORMATACAO EM 10 SEGUNDOS,
+ESTEJA CIENTE DO QUE ESTA FAZENDO,
+POIS TODOS OS DADOS SERAO APAGADOS
+PARA QUE A INSTALACAO SEJA BEM SUCEDIDA..."; then
+sleep 10; clear
+fi;
+
+
+
+
+
++ "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
+
+
+
+
+
++ "[options]
 Architecture=auto
 CheckSpace
 ParallelDownloads=1
@@ -14,7 +49,17 @@ Include=/etc/pacman.d/mirrorlist
 Include=/etc/pacman.d/mirrorlist
 [community]
 Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
+
+
+
+
+
 pacman -Sy --noconfirm --quiet;
+
+
+
+
+
 if fdisk /dev/nvme0n1; then <<EOF
 o
 w
@@ -97,6 +142,11 @@ mkdir /mnt/home;
 mount /dev/sda1 /mnt/boot/EFI;
 mount /dev/sda3 /mnt/home;
 fi;
+
+
+
+
+
 pacstrap /mnt --noconfirm \
 base \
 base-devel \
@@ -109,7 +159,17 @@ git \
 fastfetch \
 grub-efi-x86_64 \
 efibootmgr;
+
+
+
+
+
 genfstab -U -p /mnt > /mnt/etc/fstab;
+
+
+
+
+
 arch-chroot /mnt bash -c '
 echo 4RCH > /etc/hostname;
 echo -e "4RCH\n4RCH" | passwd root;

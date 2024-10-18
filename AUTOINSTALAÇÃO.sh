@@ -30,7 +30,12 @@ fi;
 
 
 
-+ "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
++ "ADICIONANDO ESPELHO BRASILEIRO"
+if + "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist; then
++ "ESPELHO BRASILEIRO ADICIONADO COM SUCESSO"
+else
++ "ERRO AO ADICIONAR O ESPELHO BRASILEIRO"
+fi;
 
 
 

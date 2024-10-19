@@ -94,11 +94,12 @@ fi;
 
 
 
-if fdisk /dev/nvme0n1; then <<EOF
+if % fdisk /dev/nvme0n1; then <<EOF > /dev/null 2>&1
 o
 w
 EOF
-fdisk /dev/nvme0n1 <<EOF
+
+fdisk /dev/nvme0n1 <<EOF > /dev/null 2>&1
 n
 p
 1
@@ -108,7 +109,8 @@ t
 4
 w
 EOF
-fdisk /dev/nvme0n1 <<EOF
+
+fdisk /dev/nvme0n1 <<EOF > /dev/null 2>&1
 n
 p
 2
@@ -116,7 +118,8 @@ p
 +30G
 w
 EOF
-fdisk /dev/nvme0n1 <<EOF
+
+fdisk /dev/nvme0n1 <<EOF > /dev/null 2>&1
 n
 p
 3
@@ -124,6 +127,7 @@ p
 
 w
 EOF
+
 % partprobe
 % mkfs.fat -F32 /dev/nvme0n1p1
 % mkfs.ext4 -F /dev/nvme0n1p2
@@ -134,12 +138,15 @@ EOF
 % mkdir /mnt/home
 % mount /dev/nvme0n1p1 /mnt/boot/EFI
 % mount /dev/nvme0n1p3 /mnt/home
+
 else
-fdisk /dev/sda <<EOF
+
+fdisk /dev/sda <<EOF > /dev/null 2>&1
 o
 w
 EOF
-fdisk /dev/sda <<EOF
+
+fdisk /dev/sda <<EOF > /dev/null 2>&1
 n
 p
 1
@@ -149,7 +156,8 @@ t
 4
 w
 EOF
-fdisk /dev/sda <<EOF
+
+fdisk /dev/sda <<EOF > /dev/null 2>&1
 n
 p
 2
@@ -157,7 +165,8 @@ p
 +30G
 w
 EOF
-fdisk /dev/sda <<EOF
+
+fdisk /dev/sda <<EOF > /dev/null 2>&1
 n
 p
 3
@@ -165,6 +174,7 @@ p
 
 w
 EOF
+
 % partprobe
 % mkfs.fat -F32 /dev/sda1
 % mkfs.ext4 -F /dev/sda2

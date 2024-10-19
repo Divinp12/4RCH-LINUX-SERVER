@@ -47,7 +47,8 @@ fi;
 
 
 
-+ "[options]
++ "SOBSCREVENDO ARQUIVO pacman.conf"
+if + "[options]
 Architecture=auto
 CheckSpace
 ParallelDownloads=1
@@ -60,7 +61,11 @@ Include=/etc/pacman.d/mirrorlist
 [multilib]
 Include=/etc/pacman.d/mirrorlist
 [community]
-Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
+Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf; then
++ "ARQUIVO pacman.conf SOBSCRITO COM SUCESSO"
+else
++ "ERRO AO SOBSCREVER ARQUIVO pacman.conf"
+fi;
 
 
 
@@ -72,7 +77,12 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 
 
-% pacman -Sy --noconfirm --quiet
++ "SINCRONIZANDO REPOSITORIOS DO PACMAN"
+if % pacman -Sy --noconfirm --quiet; then
++ "REPOSITORIOS DO PACMAN SINCRONIZADOS COM SUCESSO"
+else
++ "ERRO AO SINCRONIZAR REPOSITORIOS DO PACMAN"
+fi;
 
 
 

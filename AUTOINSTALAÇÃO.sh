@@ -9,7 +9,7 @@ sleep 5;
 clear; "$@"
 }
 
-%() {
+X() {
 "$@" > /dev/null 2>&1;
 }
 
@@ -62,7 +62,7 @@ fi;
 ?
 
 + "SINCRONIZANDO REPOSITORIOS DO PACMAN"
-if % pacman -Sy --noconfirm --quiet; then
+if X pacman -Sy --noconfirm --quiet; then
 + "REPOSITORIOS DO PACMAN SINCRONIZADOS COM SUCESSO"
 else
 + "ERRO AO SINCRONIZAR REPOSITORIOS DO PACMAN"
@@ -70,7 +70,7 @@ fi;
 
 ?
 
-if % fdisk /dev/nvme0n1; then <<EOF > /dev/null 2>&1
+if X fdisk /dev/nvme0n1; then <<EOF > /dev/null 2>&1
 o
 w
 EOF
@@ -104,16 +104,16 @@ p
 w
 EOF
 
-% partprobe
-% mkfs.fat -F32 /dev/nvme0n1p1
-% mkfs.ext4 -F /dev/nvme0n1p2
-% mkfs.ext4 -F /dev/nvme0n1p3
-% mount /dev/nvme0n1p2 /mnt
-% mkdir /mnt/boot
-% mkdir /mnt/boot/EFI
-% mkdir /mnt/home
-% mount /dev/nvme0n1p1 /mnt/boot/EFI
-% mount /dev/nvme0n1p3 /mnt/home
+X partprobe
+X mkfs.fat -F32 /dev/nvme0n1p1
+X mkfs.ext4 -F /dev/nvme0n1p2
+X mkfs.ext4 -F /dev/nvme0n1p3
+X mount /dev/nvme0n1p2 /mnt
+X mkdir /mnt/boot
+X mkdir /mnt/boot/EFI
+X mkdir /mnt/home
+X mount /dev/nvme0n1p1 /mnt/boot/EFI
+X mount /dev/nvme0n1p3 /mnt/home
 
 else
 
@@ -151,21 +151,21 @@ p
 w
 EOF
 
-% partprobe
-% mkfs.fat -F32 /dev/sda1
-% mkfs.ext4 -F /dev/sda2
-% mkfs.ext4 -F /dev/sda3
-% mount /dev/sda2 /mnt
-% mkdir /mnt/boot
-% mkdir /mnt/boot/EFI
-% mkdir /mnt/home
-% mount /dev/sda1 /mnt/boot/EFI
-% mount /dev/sda3 /mnt/home
+X partprobe
+X mkfs.fat -F32 /dev/sda1
+X mkfs.ext4 -F /dev/sda2
+X mkfs.ext4 -F /dev/sda3
+X mount /dev/sda2 /mnt
+X mkdir /mnt/boot
+X mkdir /mnt/boot/EFI
+X mkdir /mnt/home
+X mount /dev/sda1 /mnt/boot/EFI
+X mount /dev/sda3 /mnt/home
 fi;
 
 ?
 
-% pacstrap /mnt --noconfirm --quiet \
+X pacstrap /mnt --noconfirm --quiet \
 base \
 base-devel \
 linux \
@@ -198,7 +198,7 @@ sleep 5;
 clear; "$@"
 }
 
-%() {
+X() {
 "$@" > /dev/null 2>&1;
 }
 
@@ -234,11 +234,11 @@ useradd -m -g users -G wheel 4RCH;
 
 ?
 
-% locale-gen;
+X locale-gen;
 
 ?
 
-% hwclock --systohc;
+X hwclock --systohc;
 
 ?
 
@@ -325,7 +325,7 @@ Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
 ?
 
-% pacman -Sy --noconfirm --quiet;
+X pacman -Sy --noconfirm --quiet;
 
 ?
 
@@ -355,18 +355,18 @@ fi;
 
 ?
 
-% systemctl enable NetworkManager;
+X systemctl enable NetworkManager;
 
 ?
 
-% systemctl disable \
+X systemctl disable \
 NetworkManager-wait-online \
 systemd-networkd \
 systemd-timesyncd;
 
 ?
 
-% mkinitcpio -P;
+X mkinitcpio -P;
 
 ?
 
@@ -382,11 +382,11 @@ GRUB_DISABLE_RECOVERY=true" > /etc/default/grub;
 
 ?
 
-% grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
+X grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
 
 ?
 
-% grub-mkconfig -o /boot/grub/grub.cfg;
+X grub-mkconfig -o /boot/grub/grub.cfg;
 
 ?
 
@@ -424,7 +424,7 @@ rm -rf /boot/initramfs-linux-fallback.img';
 
 ?
 
-% sync;
+X sync;
 
 ?
 

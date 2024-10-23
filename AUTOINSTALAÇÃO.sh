@@ -4,7 +4,7 @@
 echo "$@"
 }
 
-?() {
+S() {
 sleep 5;
 clear; "$@"
 }
@@ -37,7 +37,7 @@ else
 + "ERRO AO ADICIONAR O ESPELHO BRASILEIRO"
 fi;
 
-?
+S
 
 + "SOBSCREVENDO ARQUIVO pacman.conf"
 if + "[options]
@@ -59,7 +59,7 @@ else
 + "ERRO AO SOBSCREVER ARQUIVO pacman.conf"
 fi;
 
-?
+S
 
 + "SINCRONIZANDO REPOSITORIOS DO PACMAN"
 if X pacman -Sy --noconfirm --quiet; then
@@ -68,7 +68,7 @@ else
 + "ERRO AO SINCRONIZAR REPOSITORIOS DO PACMAN"
 fi;
 
-?
+S
 
 if X fdisk /dev/nvme0n1; then <<EOF > /dev/null 2>&1
 o
@@ -163,7 +163,7 @@ X mount /dev/sda1 /mnt/boot/EFI
 X mount /dev/sda3 /mnt/home
 fi;
 
-?
+S
 
 X pacstrap /mnt --noconfirm --quiet \
 base \
@@ -178,22 +178,19 @@ fastfetch \
 grub-efi-x86_64 \
 efibootmgr
 
-?
+S
 
 genfstab -U -p /mnt > /mnt/etc/fstab;
 
-?
+S
 
 arch-chroot /mnt bash -c '
-
-
-
 
 +() {
 echo "$@"
 }
 
-?() {
+S() {
 sleep 5;
 clear; "$@"
 }
@@ -205,46 +202,43 @@ X() {
 clear;
 
 
-
-
-
-?
+S
 
 + 4RCH > /etc/hostname;
 
-?
+S
 
 + -e "4RCH\n4RCH" | passwd root;
 
-?
+S
 
 useradd -m -g users -G wheel 4RCH;
 
-?
+S
 
 + -e "4RCH\n4RCH" | passwd 4RCH;
 
-?
+S
 
 + "pt_BR.UTF-8 UTF-8" > /etc/locale.gen;
 
-?
+S
 
 + "LANG=pt_BR.UTF-8" > /etc/locale.conf;
 
-?
+S
 
 X locale-gen;
 
-?
+S
 
 X hwclock --systohc;
 
-?
+S
 
 + "Server=https://mirror.ufscar.br/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist;
 
-?
+S
 
 + "alias i=\"yay -S --noconfirm --quiet\"
 alias d=\"sudo pacman -Rsc\"
@@ -306,7 +300,7 @@ sudo systemctl enable sshd && \\
 sudo systemctl start sshd && \\
 sudo sed -i \"8,\\\$d\" /home/4RCH/.bashrc" > /home/4RCH/.bashrc;
 
-?
+S
 
 + "[options]
 Architecture=auto
@@ -323,29 +317,29 @@ Include=/etc/pacman.d/mirrorlist
 [community]
 Include=/etc/pacman.d/mirrorlist" > /etc/pacman.conf;
 
-?
+S
 
 X pacman -Sy --noconfirm --quiet;
 
-?
+S
 
 if lspci | grep -i amd; then
 pacman -Sy --noconfirm amd-ucode
 fi;
 
-?
+S
 
 if lspci | grep -i intel; then
 pacman -Sy --noconfirm intel-ucode
 fi;
 
-?
+S
 
 if lspci | grep -i nvidia; then
 pacman -Sy --noconfirm nvidia nvidia-dkms
 fi;
 
-?
+S
 
 if lspci | grep -i virtualbox; then
 pacman -Sy --noconfirm \
@@ -353,22 +347,22 @@ virtualbox-guest-utils \
 virtualbox-guest-modules-arch
 fi;
 
-?
+S
 
 X systemctl enable NetworkManager;
 
-?
+S
 
 X systemctl disable \
 NetworkManager-wait-online \
 systemd-networkd \
 systemd-timesyncd;
 
-?
+S
 
 X mkinitcpio -P;
 
-?
+S
 
 + "GRUB_DEFAULT=0
 GRUB_TIMEOUT=0
@@ -380,19 +374,19 @@ GRUB_GFXMODE=auto
 GRUB_GFXPAYLOAD_LINUX=keep
 GRUB_DISABLE_RECOVERY=true" > /etc/default/grub;
 
-?
+S
 
 X grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=4RCH --recheck;
 
-?
+S
 
 X grub-mkconfig -o /boot/grub/grub.cfg;
 
-?
+S
 
 + "4RCH ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers;
 
-?
+S
 
 sed -i "/^\s*#/d; /^\s*$/d" \
 /home/4RCH/.bash_profile \
@@ -408,24 +402,24 @@ sed -i "/^\s*#/d; /^\s*$/d" \
 /etc/ts.conf \
 /etc/fstab;
 
-?
+S
 
 sed -i "/^UUID=.* \/boot .*$/! s/rw/rw,noatime,discard,/" /etc/fstab;
 
-?
+S
 
 + "127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 127.0.0.1 4RCH.localdomain 4RCH" > /etc/hosts;
 
-?
+S
 
 rm -rf /boot/initramfs-linux-fallback.img';
 
-?
+S
 
 X sync;
 
-?
+S
 
 reboot -f;

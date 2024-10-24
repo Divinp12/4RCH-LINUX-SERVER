@@ -6,7 +6,6 @@ echo "$@"
 
 S() {
 sleep 5;
-pacman -Scc --noconfirm --quiet > /dev/null 2>&1;
 clear; "$@"
 }
 

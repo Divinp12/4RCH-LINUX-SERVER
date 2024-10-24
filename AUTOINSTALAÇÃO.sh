@@ -62,6 +62,7 @@ fi;
 
 S
 
++ "FORMATANDO DISPOSITIVO DE ARMAZENAMENTO DE DADOS VALIDO"
 if X fdisk /dev/nvme0n1; then <<EOF > /dev/null 2>&1
 o
 w

@@ -250,7 +250,7 @@ yay -S --noconfirm --quiet pi-hole-server && \\
 sudo systemctl enable pihole-FTL && \\
 sudo systemctl start pihole-FTL && \\
 pihole -g && \\
-sudo sed -i -e \"$a\
+sudo sed -i -e \"\$a\\
 https://blocklistproject.github.io/Lists/abuse.txt\
 https://blocklistproject.github.io/Lists/alt-version/abuse-nl.txt\
 https://blocklistproject.github.io/Lists/ads.txt\
